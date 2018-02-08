@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static%}
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{{title}}{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Star Admin</title>
+    <link rel="stylesheet" href="{% static 'roommate/css/font-awesome.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'roommate/css/perfect-scrollbar.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'roommate/css/style.css'%}" />
+    <link rel="stylesheet" href="{% static 'roommate/css/bootstrap.min.css'%}" />
+    <link rel="shortcut icon" href="{% static 'roommate/images/favicon.png'%}" />
+    <script src="{% static 'roommate/js/popper.min.js'%}"></script>
+</head>
+
+<body>
+    <main>
+        {% block content %} {% endblock %}
+    </main>
+</body>
+<script src="{% static 'roommate/js/jquery.min.js'%}"></script>
+
+<script src="{% static 'roommate/js/bootstrap.min.js'%}"></script>
+<script src="{% static 'roommate/js/perfect-scrollbar.jquery.min.js'%}"></script>
+<script src="{% static 'roommate/js/misc.js'%}"></script>
+
+</html>
