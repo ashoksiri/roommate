@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url,include
 from django.contrib import admin
 from django.contrib.staticfiles.urls import  staticfiles_urlpatterns
 
@@ -21,12 +21,18 @@ from django.views.generic import TemplateView , RedirectView
 from accounts import views as account_views
 from django.contrib.auth import views as auth_views
 
+
+
 urlpatterns = [
-    url(r'^$',account_views.home,name='home'),
+    url(r'^$',RedirectView.as_view(url='accounts/home')),
+    url(r'^accounts/home/$',account_views.home,name='home'),
     url(r'^accounts/login/$',account_views.login_view,name='login'),
     url(r'^accounts/register/$',account_views.register,name='register'),
     url(r'^accounts/logout/$',account_views.logout_view,name='logout'),
-    # # url(r'^admin/', admin.site.urls),
+    url(r'^accounts/forgot_password/$',TemplateView.as_view(template_name='roommate/password_reset.html'),name="forgot_password"),
+    #url(r'^accounts/facebook/login/',views.LoginView.as_view(),name='facebook'),
+    url(r'^admin/', admin.site.urls),
+     #url(r'^oauth/', include('social_django.urls', namespace='social')),  # <--
     # # url(r'^$', account_views.home, name='home'),
     # url(r'^accounts/logout/$', auth_views.logout, {'next_page': 'login'}, name='logout'),
     # url(r'^signup/$', account_views.signup, name='signup'),

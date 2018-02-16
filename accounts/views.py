@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate , logout
 from django.shortcuts import render, redirect
+from django.http import *
 from accounts.forms import SignUpForm,LoginForm
 
 
@@ -11,11 +12,15 @@ def home(request):
 
 def login_view(request):
     
+    if request.user.is_authenticated():
+        return redirect('home')
+        
     username = password = ''
     context = {
         'form':LoginForm(),
         'title':'RoomMate'
     }
+    
     if request.POST:
         username = request.POST['username']
         password = request.POST['password']
@@ -36,6 +41,10 @@ def login_view(request):
 
 
 def register(request):
+    
+    if request.user.is_authenticated():
+        return redirect('home')
+
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
