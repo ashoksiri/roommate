@@ -2,7 +2,6 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
-from django.forms.extras.widgets import SelectDateWidget
 import unicodedata
 
 
@@ -22,7 +21,7 @@ class SignUpForm(UserCreationForm):
     
     birth_date = forms.DateField(
         label="Birth Date",
-        widget=DateInput(attrs={'placeHolder':"Date of Birth eg@ dd/mm/yyyy"}),
+        widget=forms.TextInput(attrs={'placeHolder':"Date of Birth eg@ dd/mm/yyyy"}),
     
     )
 

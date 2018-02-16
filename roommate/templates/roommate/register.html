@@ -36,5 +36,15 @@
     </div>
     <!--/row-->
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        $('#id_birth_date').datepicker({
+            format: "yyyy-mm-dd",
+            autoclose: true,
+            todayHighlight: true
+        });
+    });
+</script>
 
 {% endblock %}

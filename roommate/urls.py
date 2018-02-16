@@ -32,6 +32,8 @@ urlpatterns = [
     url(r'^accounts/forgot_password/$',TemplateView.as_view(template_name='roommate/password_reset.html'),name="forgot_password"),
     #url(r'^accounts/facebook/login/',views.LoginView.as_view(),name='facebook'),
     url(r'^admin/', admin.site.urls),
+    url(r'^charts/$',TemplateView.as_view(template_name='roommate/charts.html'),name="charts"),
+    url(r'^accounts/mail/$',TemplateView.as_view(template_name='roommate/mail.html'),name="mail"),
      #url(r'^oauth/', include('social_django.urls', namespace='social')),  # <--
     # # url(r'^$', account_views.home, name='home'),
     # url(r'^accounts/logout/$', auth_views.logout, {'next_page': 'login'}, name='logout'),
